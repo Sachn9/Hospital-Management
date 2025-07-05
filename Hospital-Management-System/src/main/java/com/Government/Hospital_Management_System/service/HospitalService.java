@@ -1,5 +1,6 @@
 package com.Government.Hospital_Management_System.service;
 
+import com.Government.Hospital_Management_System.model.Doctor;
 import com.Government.Hospital_Management_System.model.Hospital;
 import com.Government.Hospital_Management_System.repository.HospitalRepository;
 import lombok.Setter;
@@ -49,5 +50,32 @@ public class HospitalService {
             hospitals.add(hospital);
         }
         return hospitals;
+    }
+
+
+    /**
+     *
+     * Below function will return the hospital which is having minimum value of the doctors.
+     */
+
+    public Hospital getHospitalHavingMinimumDoctor(){
+        List<Hospital> hospitals=this.getAllHospitals();
+
+        Hospital ans=null;
+        int min=Integer.MAX_VALUE;
+        for(int i=0;i<hospitals.size();i++){
+            Hospital hospital=hospitals.get(i);
+            int size=hospital.getDoctors().size();
+            if(size <min){
+                min=size;
+                ans=hospital;
+            }
+        }
+        return ans;
+    }
+
+    public List<Doctor> getAllHospitalById(int hospitalId){
+        Hospital hospital=this.getHospitalById(hospitalId);
+        return hospital.getDoctors();
     }
 }

@@ -7,7 +7,6 @@ import java.util.List;
 @Getter
 @Setter
 public class Hospital {
-    int id;
     String name;
     String address;
     String email;

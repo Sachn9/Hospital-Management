@@ -1,5 +1,6 @@
 package com.Government.Hospital_Management_System.controllers;
 
+import com.Government.Hospital_Management_System.model.Doctor;
 import com.Government.Hospital_Management_System.model.Hospital;
 import com.Government.Hospital_Management_System.service.HospitalService;
 import lombok.extern.slf4j.Slf4j;
@@ -51,5 +52,10 @@ public class HospitalControllers {
     @GetMapping("/get/all")
     public List<Hospital> getAllHospitals(){
         return hospitalService.getAllHospitals();
+    }
+
+    @GetMapping("/doctors/{hospitalId}")
+    public List<Doctor> getAllDoctorsHospitalById(@PathVariable int hospitalId){
+        return hospitalService.getAllHospitalById(hospitalId);
     }
 }

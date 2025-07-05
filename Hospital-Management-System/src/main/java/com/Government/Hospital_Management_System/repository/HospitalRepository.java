@@ -1,17 +1,15 @@
 package com.Government.Hospital_Management_System.repository;
 
 import com.Government.Hospital_Management_System.model.Hospital;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.HashMap;
 
 @Repository
 public class HospitalRepository {
-
+    @Autowired
     HashMap<Integer, Hospital> hospitalDB;
-    public HospitalRepository(){
-        this.hospitalDB=new HashMap<>();
-    }
 
     public void saveHospital(int id,Hospital hospital){
         hospitalDB.put(id,hospital);
@@ -27,6 +25,7 @@ public class HospitalRepository {
     }
 
     public HashMap<Integer,Hospital> getAllHospital(){
+
         return hospitalDB;
     }
 
